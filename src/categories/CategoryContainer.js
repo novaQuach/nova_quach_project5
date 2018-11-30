@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import deepmerge from 'deepmerge';
 import Category from './Category';
 import './Category.scss';
 
@@ -6,46 +7,67 @@ class CategoryContainer extends Component {
     constructor() {
         super();
         this.state = {
-            categories: [
-                {
-                    title: 'Fitness',
+            categories: {
+                '0': {
+                    title: 'Test',
                     tasks: ['drink water', 'yoga'],
                     showTitle: true,
                 },
-                {
+                '1': {
                     title: 'Other Stuff',
                     tasks: ['drink water', 'yoga'],
                     showTitle: true,
                 },
-            ],
+            },
         };
     }
 
-    handleChange = (e) => {
+    handleTitleChange = (key, title) => {
         this.setState({
-            [e.target.id]: e.target.value,
+            categories: {
+                ...this.state.categories,
+                [key]: { title: title },
+            },
         });
     };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.setState({ showTitle: true });
+    submitTitle = (key) => {
+        this.setState((state) => {
+            return deepmerge(state, {
+                categories: {
+                    [key]: { showTitle: true },
+                },
+            });
+        });
     };
 
     handleNewCategory = () => {
         console.log('this should lead to a new category');
     };
 
+    deleteCategoryTitle = (key) => {
+        this.setState((state) => {
+            return deepmerge(state, {
+                categories: {
+                    [key]: { showTitle: false, title: '' },
+                },
+            });
+        });
+    };
     render() {
         return (
-            <div>
-                {this.state.categories.map((category) => {
+            <div className="categoryWrapper">
+                {Object.entries(this.state.categories).map((entry) => {
+                    const [key, category] = entry;
+
                     return (
                         <Category
                             value={category.title}
-                            onChange={this.handleChange}
-                            onSubmit={this.handleSubmit}
+                            onTitleChange={this.handleTitleChange}
+                            onTitleSubmit={this.submitTitle}
                             showTitle={category.showTitle}
+                            catKey={key}
+                            onButtonClick={this.deleteCategoryTitle}
                         />
                     );
                 })}

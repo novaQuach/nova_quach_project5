@@ -5,8 +5,8 @@ import './App.css';
 import firebase from './firebase';
 
 // Components
-import DateTime from './DateTime';
-import Focus from './focus/Focus';
+import DateTime from './dateTime/DateTime';
+import FocusContainer from './focus/FocusContainer';
 import CategoryContainer from './categories/CategoryContainer';
 
 class App extends Component {
@@ -14,9 +14,6 @@ class App extends Component {
         super();
         this.state = {
             greeting: 'Good evening',
-            focus: '',
-            showFocusInput: true,
-            focusInputStriked: false,
         };
     }
     //how to add items to an array in state
@@ -25,44 +22,11 @@ class App extends Component {
     //this.setState( tasks is equal to new array
     //)
 
-    handleChange = (e) => {
-        this.setState({
-            [e.target.id]: e.target.value,
-        });
-        console.log(e.target.value);
-    };
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.setState({ showFocusInput: false });
-    };
-
-    handleFocusButtonClick = () => {
-        this.setState({ focus: '', showFocusInput: true });
-    };
-
-    handleFocusBoxChecked = () => {
-        this.setState({
-            focusInputStriked: !this.state.focusInputStriked,
-        });
-        console.log(this.state.focusInputStriked);
-        return this.state.focusInputStriked;
-    };
-
     render() {
         return (
             <main className="App">
                 <DateTime />
-                <Focus
-                    value={this.state.focus}
-                    onChange={this.handleChange}
-                    onSubmit={this.handleSubmit}
-                    showInput={this.state.showFocusInput}
-                    focusButtonClick={this.handleFocusButtonClick}
-                    focusBoxChecked={this.handleFocusBoxChecked}
-                    focusInputStriked={this.state.focusInputStriked}
-                />
-
+                <FocusContainer />
                 <CategoryContainer />
             </main>
         );
