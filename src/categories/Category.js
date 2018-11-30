@@ -1,5 +1,4 @@
-import React from 'react';
-import './Focus.scss';
+import React, { Component } from 'react';
 
 const Category = ({ value, onChange, onSubmit, showTitle }) => {
     return (
@@ -10,10 +9,7 @@ const Category = ({ value, onChange, onSubmit, showTitle }) => {
                 {showTitle ? (
                     <div>
                         <h2>{value}</h2>
-                        <ul>
-                            <button>new task</button>
-                            <li>sudo li </li>
-                        </ul>
+                        <button onClick>new task</button>
                     </div>
                 ) : (
                     <input

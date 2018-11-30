@@ -6,8 +6,8 @@ import firebase from './firebase';
 
 // Components
 import DateTime from './DateTime';
-import Focus from './Focus';
-import Category from './Category';
+import Focus from './focus/Focus';
+import CategoryContainer from './categories/CategoryContainer';
 
 class App extends Component {
     constructor() {
@@ -17,19 +17,13 @@ class App extends Component {
             focus: '',
             showFocusInput: true,
             focusInputStriked: false,
-            showTitle: false,
-            categories: [
-                {
-                    title: 'Fitness',
-                    tasks: ['drink water', 'yoga'],
-                },
-                {
-                    title: 'Other Stuff',
-                    tasks: ['drink water', 'yoga'],
-                },
-            ],
         };
     }
+    //how to add items to an array in state
+    //grab the current state of the array you are trying to change and save as a variable
+    //push the new item on to that array (variable)
+    //this.setState( tasks is equal to new array
+    //)
 
     handleChange = (e) => {
         this.setState({
@@ -40,7 +34,7 @@ class App extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.setState({ showFocusInput: false, showTitle: true });
+        this.setState({ showFocusInput: false });
     };
 
     handleFocusButtonClick = () => {
@@ -55,20 +49,9 @@ class App extends Component {
         return this.state.focusInputStriked;
     };
 
-    // <button onClick={this.toggleArt} >Toggle Art </button>
-    // { this.state.showArt ? <Art searchParam={this.state.searchParam} /> : <p>click the button to see the art</p> }
-    //         </div >
-
-    //     this.setState({
-    //   showArt: !this.state.showArt,
-    // })
-    handleNewCategory = () => {
-        console.log('this should lead to a new category');
-    };
-
     render() {
         return (
-            <div className="App">
+            <main className="App">
                 <DateTime />
                 <Focus
                     value={this.state.focus}
@@ -79,18 +62,9 @@ class App extends Component {
                     focusBoxChecked={this.handleFocusBoxChecked}
                     focusInputStriked={this.state.focusInputStriked}
                 />
-                <button onClick={this.handleNewCategory}>New Category</button>
-                {this.state.categories.map((category) => {
-                    return (
-                        <Category
-                            value={category.title}
-                            onChange={this.handleChange}
-                            onSubmit={this.handleSubmit}
-                            showTitle={this.state.showTitle}
-                        />
-                    );
-                })}
-            </div>
+
+                <CategoryContainer />
+            </main>
         );
     }
 }
