@@ -30,7 +30,6 @@ const Category = ({
                     <div>
                         <button onClick={handleDeleteButton}>x</button>
                         <h2>{value}</h2>
-                        <button>new task</button>
                     </div>
                 ) : (
                     <input

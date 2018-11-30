@@ -10,12 +10,12 @@ class CategoryContainer extends Component {
             categories: {
                 '0': {
                     title: 'Test',
-                    tasks: ['drink water', 'yoga'],
+                    // tasks: ['drink water', 'yoga'],
                     showTitle: true,
                 },
                 '1': {
                     title: 'Other Stuff',
-                    tasks: ['drink water', 'yoga'],
+                    // tasks: ['drink water', 'yoga'],
                     showTitle: true,
                 },
             },
@@ -23,17 +23,18 @@ class CategoryContainer extends Component {
     }
 
     handleTitleChange = (key, title) => {
-        this.setState({
-            categories: {
-                ...this.state.categories,
-                [key]: { title: title },
-            },
+        this.setState((currentState) => {
+            return deepmerge(currentState, {
+                categories: {
+                    [key]: { title: title },
+                },
+            });
         });
     };
 
     submitTitle = (key) => {
-        this.setState((state) => {
-            return deepmerge(state, {
+        this.setState((currentState) => {
+            return deepmerge(currentState, {
                 categories: {
                     [key]: { showTitle: true },
                 },
@@ -42,12 +43,23 @@ class CategoryContainer extends Component {
     };
 
     handleNewCategory = () => {
-        console.log('this should lead to a new category');
+        this.setState((currentState) => {
+            const newKey = Object.keys(currentState.categories).length;
+
+            return deepmerge(currentState, {
+                categories: {
+                    [newKey]: {
+                        showTitle: false,
+                        title: '',
+                    },
+                },
+            });
+        });
     };
 
     deleteCategoryTitle = (key) => {
-        this.setState((state) => {
-            return deepmerge(state, {
+        this.setState((currentState) => {
+            return deepmerge(currentState, {
                 categories: {
                     [key]: { showTitle: false, title: '' },
                 },
