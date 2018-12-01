@@ -28,7 +28,10 @@ const Focus = ({
                         <h2 className={isComplete ? 'strikedOut' : ''}>
                             {value}
                         </h2>,
-                        <button onClick={focusButtonClick}>X</button>,
+                        <button onClick={focusButtonClick}>
+                            {' '}
+                            <i class="fas fa-times" />
+                        </button>,
                     ]
                 ) : (
                     <input

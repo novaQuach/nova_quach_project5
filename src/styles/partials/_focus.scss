@@ -1,5 +1,6 @@
 .focusTitle {
     @include headingStyle($large-font);
+    margin-bottom: 30px;
 }
 
 .focusTitleInput {
@@ -11,6 +12,7 @@
 
 .focusForm h2 {
     display: inline-block;
+    @include headingStyle($medium-font);
 }
 
 .strikedOut {

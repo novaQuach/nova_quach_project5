@@ -9,5 +9,6 @@
 }
 
 .date {
-    @include headingStyle($large-font);
+    @include headingStyle($medium-font);
+    margin-bottom: 20px;
 }
