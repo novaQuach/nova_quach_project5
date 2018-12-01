@@ -1,5 +1,13 @@
 .time,
 .date {
     display: block;
-    font-size: $xlarge-font;
+}
+
+.time {
+    @include headingStyle($xlarge-font);
+    margin-top: 75px;
+}
+
+.date {
+    @include headingStyle($large-font);
 }

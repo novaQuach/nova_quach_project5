@@ -31,23 +31,20 @@
 
 .newCatBtn.btns {
     width: 350px;
-    height: 200px;
+    height: 245px;
     border: 1px solid black;
     margin: 20px;
     font-size: $medium-font;
 }
 
 .catTitleInput {
+    @include inputTextStyle($small-font);
     width: 80%;
-    border: none;
     margin: 10px;
-    font-size: $small-font;
 }
 
 .catTitle {
+    @include textStyle($large-font);
     margin: 25px 50px 50px 50px;
-    font-size: $small-font;
     overflow-wrap: break-word;
-    // word-break: break-all;
-    // overflow: hidden;
 }

@@ -32,6 +32,7 @@ const Focus = ({
                     ]
                 ) : (
                     <input
+                        className="focusTitleInput"
                         value={value}
                         onChange={onChange}
                         id="focus"

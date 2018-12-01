@@ -22,8 +22,8 @@ class DateTime extends Component {
         const date = this.state.date;
         return (
             <div className="dateTime">
-                <time className="date">{date.toDateString()}</time>
                 <time className="time">{date.toLocaleTimeString()}</time>
+                <time className="date">{date.toDateString()}</time>
             </div>
         );
     }

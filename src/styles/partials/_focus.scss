@@ -1,5 +1,12 @@
 .focusTitle {
-    font-size: $large-font;
+    @include headingStyle($large-font);
+}
+
+.focusTitleInput {
+    @include inputTextStyle($small-font);
+    width: 400px;
+    border-bottom: 2px solid black;
+    text-align: center;
 }
 
 .focusForm h2 {
