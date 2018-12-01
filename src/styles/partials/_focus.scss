@@ -1,10 +1,10 @@
 .focusTitle {
-    @include headingStyle($large-font);
+    @include headingStyle($medium-font);
     margin-bottom: 30px;
 }
 
 .focusTitleInput {
-    @include inputTextStyle($small-font);
+    @include inputTextStyle($large-font);
     width: 400px;
     border-bottom: 2px solid black;
     text-align: center;
@@ -12,7 +12,7 @@
 
 .focusForm h2 {
     display: inline-block;
-    @include headingStyle($medium-font);
+    @include headingStyle($large-font);
 }
 
 .strikedOut {

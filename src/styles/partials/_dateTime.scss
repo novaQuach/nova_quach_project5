@@ -5,10 +5,8 @@
 
 .time {
     @include headingStyle($xlarge-font);
-    margin-top: 75px;
 }
 
 .date {
     @include headingStyle($medium-font);
-    margin-bottom: 20px;
 }
