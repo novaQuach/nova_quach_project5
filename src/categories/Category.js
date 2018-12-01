@@ -8,6 +8,7 @@ const Category = ({
     catKey,
     onCategoryButtonClick,
     onCategoryBoxButtonClick,
+    onCategoryCheckBoxClick,
 }) => {
     const handleInputChange = (e) => {
         onTitleChange(catKey, e.target.value);
@@ -26,6 +27,10 @@ const Category = ({
         onCategoryBoxButtonClick(catKey);
     };
 
+    const handleCheckBox = () => {
+        onCategoryCheckBoxClick(catKey);
+    };
+
     return (
         <div className="categoryBoxWrapper">
             <div className="deleteBoxWrapper">
@@ -39,7 +44,13 @@ const Category = ({
 
                     {showTitle ? (
                         <div>
-                            <div className="deleteCatTitleWrapper">
+                            <div className="catTitleWrapper">
+                                <button
+                                    onClick={onCategoryCheckBoxClick}
+                                    className="catCheckBox btns"
+                                >
+                                    <i className="far fa-square" />
+                                </button>
                                 <h2 className="catTitle">{value}</h2>
                                 <button
                                     className="deleteCatTitleBtn btns"

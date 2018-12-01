@@ -75,6 +75,11 @@ class CategoryContainer extends Component {
         });
         console.log('this should delete the categoryBox');
     };
+
+    checkCategoryBox = (key) => {
+        console.log('this task is done!');
+    };
+
     render() {
         return (
             <div className="categoryWrapper">
@@ -96,6 +101,7 @@ class CategoryContainer extends Component {
                                 onCategoryBoxButtonClick={
                                     this.deleteCategoryBox
                                 }
+                                onCategoryCheckBoxClick={this.checkCategoryBox}
                             />
                         );
                     })}
