@@ -1,5 +1,4 @@
 import React from 'react';
-import './Focus.scss';
 
 const Focus = ({
     onChange,
@@ -13,7 +12,7 @@ const Focus = ({
     //{ onChange} is equivalent to const onChange = props.onChange, deconstructing, hence when we want to refer to props.onChange, we only need to type in onChange.
     return (
         <div>
-            <h1>What is your main focus today?</h1>
+            <h1 className="focusTitle">What is your main focus today?</h1>
             <form onSubmit={onSubmit} action="" className="focusForm">
                 <label htmlFor="focusCheckbox" />
                 {isComplete ? <p>Way to Go!</p> : null}

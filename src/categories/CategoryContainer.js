@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import deepmerge from 'deepmerge';
 import Category from './Category';
-import './Category.scss';
 
 class CategoryContainer extends Component {
     constructor() {
@@ -66,6 +65,10 @@ class CategoryContainer extends Component {
             });
         });
     };
+
+    deleteCategoryBox = (key) => {
+        console.log('this should delete the categoryBox');
+    };
     render() {
         return (
             <div className="categoryWrapper">
@@ -79,11 +82,17 @@ class CategoryContainer extends Component {
                             onTitleSubmit={this.submitTitle}
                             showTitle={category.showTitle}
                             catKey={key}
-                            onButtonClick={this.deleteCategoryTitle}
+                            onCategoryButtonClick={this.deleteCategoryTitle}
+                            onCategoryBoxButtonClick={this.deleteCategoryBox}
                         />
                     );
                 })}
-                <button onClick={this.handleNewCategory}>New Category</button>
+                <button
+                    className="btns newCatBtn"
+                    onClick={this.handleNewCategory}
+                >
+                    <i class="fas fa-plus" />
+                </button>
             </div>
         );
     }

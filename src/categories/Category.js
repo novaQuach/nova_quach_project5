@@ -6,14 +6,15 @@ const Category = ({
     onTitleSubmit,
     showTitle,
     catKey,
-    onButtonClick,
+    onCategoryButtonClick,
+    onCategoryBoxButtonClick,
 }) => {
     const handleInputChange = (e) => {
         onTitleChange(catKey, e.target.value);
     };
 
     const handleDeleteButton = () => {
-        onButtonClick(catKey);
+        onCategoryButtonClick(catKey);
     };
 
     const handleSubmitTitle = (e) => {
@@ -21,25 +22,45 @@ const Category = ({
         onTitleSubmit(catKey);
     };
 
-    return (
-        <div className="newCategoryBox">
-            <form onSubmit={handleSubmitTitle} action="">
-                <label htmlFor="title" />
+    const handleDeleteBox = () => {
+        onCategoryBoxButtonClick();
+    };
 
-                {showTitle ? (
-                    <div>
-                        <button onClick={handleDeleteButton}>x</button>
-                        <h2>{value}</h2>
-                    </div>
-                ) : (
-                    <input
-                        onChange={handleInputChange}
-                        id="title"
-                        type="text"
-                        value={value}
-                    />
-                )}
-            </form>
+    return (
+        <div className="categoryBoxWrapper">
+            <div className="deleteBoxWrapper">
+                <button className="btns deleteBox" onClick={handleDeleteBox}>
+                    <i class="fas fa-trash-alt" />
+                </button>
+            </div>
+            <div className="categoryBox">
+                <form onSubmit={handleSubmitTitle} action="">
+                    <label htmlFor="title" />
+
+                    {showTitle ? (
+                        <div>
+                            <div className="deleteCatTitleWrapper">
+                                <button
+                                    className="deleteCatTitle btns"
+                                    onClick={handleDeleteButton}
+                                >
+                                    <i class="fas fa-times" />
+                                </button>
+                            </div>
+                            <h2 className="catTitle">{value}</h2>
+                        </div>
+                    ) : (
+                        <input
+                            className="catTitleInput"
+                            placeholder="New Todo"
+                            onChange={handleInputChange}
+                            id="title"
+                            type="text"
+                            value={value}
+                        />
+                    )}
+                </form>
+            </div>
         </div>
     );
 };

@@ -1,0 +1,50 @@
+.categoryWrapper {
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.categoryBoxWrapper {
+    border: 1px solid black;
+    margin: 20px;
+    width: 350px;
+}
+
+.categoryBox {
+    // border: 1px solid red;
+    width: 100%;
+}
+
+.deleteBoxWrapper {
+    text-align: right;
+}
+
+.btns {
+    @include buttonStyles;
+}
+
+.deleteCatTitleWrapper {
+    text-align: right;
+}
+
+.newCatBtn.btns {
+    width: 350px;
+    height: 200px;
+    border: 1px solid black;
+    margin: 20px;
+    font-size: $medium-font;
+}
+
+.catTitleInput {
+    width: 80%;
+    border: none;
+    margin: 10px;
+    font-size: $small-font;
+}
+
+.catTitle {
+    margin: 25px 50px 50px 50px;
+    font-size: $small-font;
+}

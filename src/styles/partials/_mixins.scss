@@ -1,0 +1,7 @@
+@mixin buttonStyles($padding...) {
+    padding: $padding;
+    margin: 10px;
+    border: none;
+    background: none;
+    font-size: $small-font;
+}

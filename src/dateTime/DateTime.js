@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { database } from 'firebase';
-import './DateTime.scss';
 
 class DateTime extends Component {
     constructor() {
