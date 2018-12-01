@@ -23,14 +23,14 @@ const Category = ({
     };
 
     const handleDeleteBox = () => {
-        onCategoryBoxButtonClick();
+        onCategoryBoxButtonClick(catKey);
     };
 
     return (
         <div className="categoryBoxWrapper">
             <div className="deleteBoxWrapper">
                 <button className="btns deleteBox" onClick={handleDeleteBox}>
-                    <i class="fas fa-trash-alt" />
+                    <i className="fas fa-trash-alt" />
                 </button>
             </div>
             <div className="categoryBox">
@@ -40,13 +40,13 @@ const Category = ({
                     {showTitle ? (
                         <div>
                             <div className="deleteCatTitleWrapper">
+                                <h2 className="catTitle">{value}</h2>
                                 <button
-                                    className="deleteCatTitle btns"
+                                    className="deleteCatTitleBtn btns"
                                     onClick={handleDeleteButton}
                                 >
-                                    <i class="fas fa-times" />
+                                    <i className="fas fa-times" />
                                 </button>
-                                <h2 className="catTitle">{value}</h2>
                             </div>
                         </div>
                     ) : (

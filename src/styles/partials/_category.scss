@@ -1,3 +1,7 @@
+.btns {
+    @include buttonStyles;
+}
+
 .categoryWrapper {
     width: 80%;
     margin: 50px auto;
@@ -22,12 +26,25 @@
     text-align: right;
 }
 
-.btns {
-    @include buttonStyles;
+.catTitle {
+    @include textStyle($large-font);
+    margin-left: 25px;
+    overflow-wrap: break-word;
+    display: inline-block;
+    width: 250px;
 }
 
 .deleteCatTitleWrapper {
     text-align: left;
+    &:hover .deleteCatTitleBtn {
+        opacity: 1;
+    }
+}
+
+.deleteCatTitleBtn {
+    width: 50px;
+    opacity: 0;
+    vertical-align: top;
 }
 
 .newCatBtn.btns {
@@ -39,14 +56,8 @@
 }
 
 .catTitleInput {
-    @include inputTextStyle($small-font);
+    @include inputTextStyle($large-font);
     width: 80%;
     margin: 10px;
-}
-
-.catTitle {
-    @include textStyle($large-font);
-    margin: 0 25px;
-    overflow-wrap: break-word;
-    display: inline-block;
+    font-family: $primary-font;
 }

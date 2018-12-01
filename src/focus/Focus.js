@@ -30,7 +30,7 @@ const Focus = ({
                         </h2>,
                         <button onClick={focusButtonClick}>
                             {' '}
-                            <i class="fas fa-times" />
+                            <i className="fas fa-times" />
                         </button>,
                     ]
                 ) : (
