@@ -10,6 +10,7 @@
     border: 1px solid black;
     margin: 20px;
     width: 350px;
+    min-height: 250px;
 }
 
 .categoryBox {
@@ -45,6 +46,7 @@
 
 .catTitle {
     @include textStyle($large-font);
-    margin: 25px 50px 50px 50px;
+    margin: 0 25px;
     overflow-wrap: break-word;
+    display: inline-block;
 }

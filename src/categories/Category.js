@@ -46,8 +46,8 @@ const Category = ({
                                 >
                                     <i class="fas fa-times" />
                                 </button>
+                                <h2 className="catTitle">{value}</h2>
                             </div>
-                            <h2 className="catTitle">{value}</h2>
                         </div>
                     ) : (
                         <input
