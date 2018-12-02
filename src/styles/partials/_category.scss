@@ -30,11 +30,14 @@
     width: 350px;
     min-height: 250px;
     opacity: 0.8;
-    box-shadow: 0px 0px 15px 2px lighten($primary-font-color, 20);
+    @include containerShadow(lighten($primary-font-color, 20));
+
+    &:hover {
+        @include hoverShadow(darken($primary-font-color, 20));
+    }
 }
 
 .categoryBox {
-    // border: 1px solid red;
     width: 100%;
 }
 
@@ -76,13 +79,14 @@
     margin: 20px;
     font-size: $medium-font;
     color: $accent-color;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgb(255, 255, 255);
+    opacity: 0.7;
 
     @include containerShadow(lighten($primary-font-color, 20));
 
     &:hover {
-        @include containerShadow(darken($primary-font-color, 10));
-        background: rgba(255, 255, 255, 0.7);
+        @include hoverShadow(darken($primary-font-color, 20));
+        // background: rgba(255, 255, 255, 0.7);
     }
 }
 
