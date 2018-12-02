@@ -12,15 +12,7 @@ import CategoryContainer from './categories/CategoryContainer';
 class App extends Component {
     constructor() {
         super();
-        this.state = {
-            greeting: 'Good evening',
-        };
     }
-    //how to add items to an array in state
-    //grab the current state of the array you are trying to change and save as a variable
-    //push the new item on to that array (variable)
-    //this.setState( tasks is equal to new array
-    //)
 
     render() {
         return (

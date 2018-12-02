@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 import deepmerge from 'deepmerge';
 import Category from './Category';
+import firebase from '../firebase';
+
+const categoriesRef = firebase.database().ref('/categories');
 
 class CategoryContainer extends Component {
     constructor() {
         super();
         this.state = {
-            categories: {
-                '0': {
-                    title: 'Test',
-                    // tasks: ['drink water', 'yoga'] stretch goals
-                    showTitle: true,
-                },
-                '1': {
-                    title: 'Other Stuff',
-                    showTitle: true,
-                },
-            },
+            categories: {},
         };
     }
+
+    componentDidMount = () => {
+        // attach event listener to firebase
+        console.log('mount');
+        categoriesRef.once('value', (snapshot) => {
+            console.log(snapshot.val());
+            this.setState({
+                categories: snapshot.val(),
+            });
+        });
+    };
 
     handleTitleChange = (key, title) => {
         this.setState((currentState) => {
@@ -40,17 +44,21 @@ class CategoryContainer extends Component {
         });
     };
 
+    // pushing the indiviudal category obejct to the categoriesRef generates a unique key, which we can reference when we want to delete the category box
     handleNewCategory = () => {
-        this.setState((currentState) => {
-            const newKey = Object.keys(currentState.categories).length;
+        const emptyCat = {
+            showTitle: false,
+            title: '',
+        };
 
-            return deepmerge(currentState, {
-                categories: {
-                    [newKey]: {
-                        showTitle: false,
-                        title: '',
+        categoriesRef.push(emptyCat).then((catRef) => {
+            const newKey = catRef.key;
+            this.setState((currentState) => {
+                return deepmerge(currentState, {
+                    categories: {
+                        [newKey]: emptyCat,
                     },
-                },
+                });
             });
         });
     };
@@ -73,6 +81,7 @@ class CategoryContainer extends Component {
                 },
             });
         });
+        categoriesRef.child(key).remove();
         console.log('this should delete the categoryBox');
     };
 
