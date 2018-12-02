@@ -50,42 +50,40 @@ const Category = ({
             </div>
             <div className="categoryBox">
                 <form onSubmit={handleSubmitTitle} action="">
-                    <label htmlFor="title" />
+                    
 
                     {showTitle ? (
-                        <div>
-                            <div className="catTitleWrapper">
-                                {categoryBoxChecked ? (
-                                    <button
-                                        onClick={handleCheckBox}
-                                        className="catCheckBox btns"
-                                    >
-                                        {' '}
-                                        <i className="far fa-check-square" />
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={handleCheckBox}
-                                        className="catCheckBox btns"
-                                    >
-                                        <i className="far fa-square" />
-                                    </button>
-                                )}
-                                <h2
-                                    className={
-                                        'catTitle ' +
-                                        (categoryBoxChecked ? 'strikedOut' : '')
-                                    }
-                                >
-                                    {value}
-                                </h2>
+                        <div className="catTitleWrapper">
+                            {categoryBoxChecked ? (
                                 <button
-                                    className="deleteCatTitleBtn btns"
-                                    onClick={handleDeleteButton}
+                                    onClick={handleCheckBox}
+                                    className="catCheckBox btns"
                                 >
-                                    <i className="fas fa-times" />
+                                    {' '}
+                                    <i className="far fa-check-square" />
                                 </button>
-                            </div>
+                            ) : (
+                                <button
+                                    onClick={handleCheckBox}
+                                    className="catCheckBox btns"
+                                >
+                                    <i className="far fa-square" />
+                                </button>
+                            )}
+                            <h2
+                                className={
+                                    'catTitle ' +
+                                    (categoryBoxChecked ? 'strikedOut' : '')
+                                }
+                            >
+                                {value}
+                            </h2>
+                            <button
+                                className="deleteCatTitleBtn btns"
+                                onClick={handleDeleteButton}
+                            >
+                                <i className="fas fa-times" />
+                            </button>
                         </div>
                     ) : (
                         <input
@@ -98,6 +96,8 @@ const Category = ({
                             value={value}
                         />
                     )}
+
+                    <label htmlFor="title" />
                 </form>
             </div>
         </div>

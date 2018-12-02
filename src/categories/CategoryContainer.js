@@ -75,7 +75,6 @@ class CategoryContainer extends Component {
         };
 
         categoriesRef.push(emptyCat).then((catRef) => {
-            console.log(catRef);
             const newKey = catRef.key;
             this.setState((currentState) => {
                 return deepmerge(currentState, {
