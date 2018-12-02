@@ -144,6 +144,7 @@ class CategoryContainer extends Component {
                                 onTitleSubmit={this.submitTitle}
                                 showTitle={category.showTitle}
                                 catKey={key}
+                                key={key}
                                 categoryBoxChecked={category.categoryBoxChecked}
                                 onCategoryButtonClick={this.deleteCategoryTitle}
                                 onCategoryBoxButtonClick={

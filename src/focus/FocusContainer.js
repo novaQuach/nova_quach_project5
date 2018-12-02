@@ -57,13 +57,12 @@ class FocusContainer extends Component {
     };
 
     handleFocusBoxChecked = (e) => {
-        focusRef.update({ isComplete: true, focus: 'test' });
+        e.preventDefault();
         this.setState((currentState) => {
             const { isComplete } = currentState;
             const newState = { isComplete: !isComplete };
 
-            console.log(currentState);
-            console.log(newState);
+            focusRef.update(newState);
 
             return newState; //functional setState will return the currentState of the state properties locally. utilizing that to extract the state of isComplete and flipping it to update firebase, and locally.
         });

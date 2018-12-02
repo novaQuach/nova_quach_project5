@@ -23,7 +23,7 @@ const Focus = ({
             {showFocusQuestion ? (
                 <h1 className="focusTitle">What is your main focus today?</h1>
             ) : (
-                ''
+                null
             )}
             <form onSubmit={onSubmit} action="" className="focusForm">
                 <label htmlFor="focusCheckbox" />
