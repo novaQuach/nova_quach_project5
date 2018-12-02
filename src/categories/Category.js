@@ -9,6 +9,7 @@ const Category = ({
     onCategoryButtonClick,
     onCategoryBoxButtonClick,
     onCategoryCheckBoxClick,
+    categoryBoxChecked,
 }) => {
     const handleInputChange = (e) => {
         onTitleChange(catKey, e.target.value);
@@ -45,12 +46,22 @@ const Category = ({
                     {showTitle ? (
                         <div>
                             <div className="catTitleWrapper">
-                                <button
-                                    onClick={onCategoryCheckBoxClick}
-                                    className="catCheckBox btns"
-                                >
-                                    <i className="far fa-square" />
-                                </button>
+                                {categoryBoxChecked ? (
+                                    <button
+                                        onClick={onCategoryCheckBoxClick}
+                                        className="catCheckBox btns"
+                                    >
+                                        {' '}
+                                        <i className="far fa-check-square" />
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={onCategoryCheckBoxClick}
+                                        className="catCheckBox btns"
+                                    >
+                                        <i className="far fa-square" />
+                                    </button>
+                                )}
                                 <h2 className="catTitle">{value}</h2>
                                 <button
                                     className="deleteCatTitleBtn btns"
@@ -62,6 +73,7 @@ const Category = ({
                         </div>
                     ) : (
                         <input
+                            required
                             className="catTitleInput"
                             placeholder="New Todo"
                             onChange={handleInputChange}

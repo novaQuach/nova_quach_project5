@@ -8,6 +8,7 @@ class FocusContainer extends Component {
             focus: '',
             showFocusTitle: false,
             isComplete: false,
+            showFocusQuestion: true,
         };
     }
 
@@ -20,11 +21,15 @@ class FocusContainer extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.setState({ showFocusTitle: true });
+        this.setState({ showFocusTitle: true, showFocusQuestion: false });
     };
 
     handleFocusButtonClick = () => {
-        this.setState({ focus: '', showFocusTitle: false });
+        this.setState({
+            focus: '',
+            showFocusTitle: false,
+            showFocusQuestion: true,
+        });
     };
 
     handleFocusBoxChecked = () => {
@@ -45,6 +50,7 @@ class FocusContainer extends Component {
                 focusButtonClick={this.handleFocusButtonClick}
                 focusBoxChecked={this.handleFocusBoxChecked}
                 isComplete={this.state.isComplete}
+                showFocusQuestion={this.state.showFocusQuestion}
             />
         );
     }

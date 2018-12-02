@@ -14,6 +14,25 @@
 .focusForm h2 {
     display: inline-block;
     @include headingStyle($large-font);
+    width: 50%;
+    overflow-wrap: break-word;
+}
+
+.focusCheckboxButton {
+    width: 50px;
+    vertical-align: top;
+}
+
+.deleteFocusTitleBtn {
+    opacity: 0;
+    width: 50px;
+    vertical-align: top;
+}
+
+.focusTitleWrapper {
+    &:hover .deleteFocusTitleBtn {
+        opacity: 1;
+    }
 }
 
 .strikedOut {

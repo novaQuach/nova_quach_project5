@@ -13,6 +13,12 @@ class CategoryContainer extends Component {
         };
     }
 
+    // categoriesRef.push({
+    //     showTitle: true,
+    //     title: 'Smile',
+    //     categoryBoxChecked: false,
+    // });
+
     componentDidMount = () => {
         // attach event listener to firebase
         console.log('mount');
@@ -38,10 +44,15 @@ class CategoryContainer extends Component {
         this.setState((currentState) => {
             return deepmerge(currentState, {
                 categories: {
-                    [key]: { showTitle: true },
+                    [key]: { showTitle: true, categoryBoxChecked: false },
                 },
             });
         });
+        categoriesRef.push({
+            showTitle: true,
+            title: 'value should show here',
+        });
+        // hardcoded the value
     };
 
     // pushing the indiviudal category obejct to the categoriesRef generates a unique key, which we can reference when we want to delete the category box
@@ -49,6 +60,7 @@ class CategoryContainer extends Component {
         const emptyCat = {
             showTitle: false,
             title: '',
+            categoryBoxChecked: false,
         };
 
         categoriesRef.push(emptyCat).then((catRef) => {
@@ -71,6 +83,7 @@ class CategoryContainer extends Component {
                 },
             });
         });
+        categoriesRef.update({ showTitle: false, title: '' });
     };
 
     deleteCategoryBox = (key) => {
@@ -82,12 +95,30 @@ class CategoryContainer extends Component {
             });
         });
         categoriesRef.child(key).remove();
-        console.log('this should delete the categoryBox');
     };
 
     checkCategoryBox = (key) => {
-        console.log('this task is done!');
+        this.setState((currentState) => {
+            return deepmerge(currentState, {
+                categories: {
+                    [key]: {
+                        categoryBoxChecked: true,
+                    },
+                },
+            });
+        });
+        console.log(this.state.categories.categoryBoxChecked);
     };
+
+    // checkCategoryBox = (key) => {
+    //     console.log(this.state.categories.categoryBoxChecked);
+    //     this.setState({
+    //         categories: {
+    //             categoryBoxChecked: !this.state.categories.categoryBoxChecked,
+    //         },
+    //     });
+    //     console.log(this.state.categories.categoryBoxChecked);
+    // };
 
     render() {
         return (
