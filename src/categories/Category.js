@@ -48,7 +48,7 @@ const Category = ({
                             <div className="catTitleWrapper">
                                 {categoryBoxChecked ? (
                                     <button
-                                        onClick={onCategoryCheckBoxClick}
+                                        onClick={handleCheckBox}
                                         className="catCheckBox btns"
                                     >
                                         {' '}
@@ -56,7 +56,7 @@ const Category = ({
                                     </button>
                                 ) : (
                                     <button
-                                        onClick={onCategoryCheckBoxClick}
+                                        onClick={handleCheckBox}
                                         className="catCheckBox btns"
                                     >
                                         <i className="far fa-square" />

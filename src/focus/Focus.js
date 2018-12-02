@@ -10,6 +10,13 @@ const Focus = ({
     focusBoxChecked,
     isComplete,
 }) => {
+    const checkboxButtonClass = (isChecked) => {
+        if (isChecked) {
+            return 'far fa-check-square';
+        } else {
+            return 'far fa-square';
+        }
+    };
     //{ onChange} is equivalent to const onChange = props.onChange, deconstructing, hence when we want to refer to props.onChange, we only need to type in onChange.
     return (
         <div>
@@ -30,7 +37,7 @@ const Focus = ({
                             type="checkbox"
                             id="focusCheckbox"
                         >
-                            <i className="far fa-square" />
+                            <i className={checkboxButtonClass(isComplete)} />
                         </button>
                         <h2 className={isComplete ? 'strikedOut' : ''}>
                             {value}
@@ -55,7 +62,6 @@ const Focus = ({
                 )}
                 {isComplete ? (
                     <div>
-                        <i className="far fa-check-square btns" />
                         <p>Way to Go!</p>
                     </div>
                 ) : null}

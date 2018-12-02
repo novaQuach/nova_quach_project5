@@ -13,20 +13,31 @@ class CategoryContainer extends Component {
         };
     }
 
-    // categoriesRef.push({
-    //     showTitle: true,
-    //     title: 'Smile',
-    //     categoryBoxChecked: false,
-    // });
-
     componentDidMount = () => {
+        const initialCategory = {
+            showTitle: true,
+            title: 'Smile',
+            categoryBoxChecked: false,
+        };
         // attach event listener to firebase
-        console.log('mount');
         categoriesRef.once('value', (snapshot) => {
             console.log(snapshot.val());
-            this.setState({
-                categories: snapshot.val(),
-            });
+
+            const categories = snapshot.val();
+
+            if (categories == null) {
+                categoriesRef.push(initialCategory).then((catRef) => {
+                    this.setState({
+                        categories: {
+                            [catRef.key]: initialCategory,
+                        },
+                    });
+                });
+            } else {
+                this.setState({
+                    categories: snapshot.val(),
+                });
+            }
         });
     };
 
@@ -44,15 +55,15 @@ class CategoryContainer extends Component {
         this.setState((currentState) => {
             return deepmerge(currentState, {
                 categories: {
-                    [key]: { showTitle: true, categoryBoxChecked: false },
+                    [key]: { showTitle: true },
                 },
             });
         });
-        categoriesRef.push({
+
+        categoriesRef.child(key).update({
             showTitle: true,
-            title: 'value should show here',
+            title: this.state.categories[key].title,
         });
-        // hardcoded the value
     };
 
     // pushing the indiviudal category obejct to the categoriesRef generates a unique key, which we can reference when we want to delete the category box
@@ -64,6 +75,7 @@ class CategoryContainer extends Component {
         };
 
         categoriesRef.push(emptyCat).then((catRef) => {
+            console.log(catRef);
             const newKey = catRef.key;
             this.setState((currentState) => {
                 return deepmerge(currentState, {
@@ -102,23 +114,18 @@ class CategoryContainer extends Component {
             return deepmerge(currentState, {
                 categories: {
                     [key]: {
-                        categoryBoxChecked: true,
+                        categoryBoxChecked: !currentState.categories[key]
+                            .categoryBoxChecked,
                     },
                 },
             });
         });
-        console.log(this.state.categories.categoryBoxChecked);
-    };
+        console.log(this.state.categories[key].categoryBoxChecked);
 
-    // checkCategoryBox = (key) => {
-    //     console.log(this.state.categories.categoryBoxChecked);
-    //     this.setState({
-    //         categories: {
-    //             categoryBoxChecked: !this.state.categories.categoryBoxChecked,
-    //         },
-    //     });
-    //     console.log(this.state.categories.categoryBoxChecked);
-    // };
+        categoriesRef.child(key).update({
+            categoryBoxChecked: this.state.categories[key].categoryBoxChecked,
+        });
+    };
 
     render() {
         return (
@@ -137,6 +144,7 @@ class CategoryContainer extends Component {
                                 onTitleSubmit={this.submitTitle}
                                 showTitle={category.showTitle}
                                 catKey={key}
+                                categoryBoxChecked={category.categoryBoxChecked}
                                 onCategoryButtonClick={this.deleteCategoryTitle}
                                 onCategoryBoxButtonClick={
                                     this.deleteCategoryBox
