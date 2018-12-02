@@ -39,7 +39,7 @@ const Category = ({
         const className = 'catBoxColor' + colorIndex;
 
         return className;
-    }
+    };
 
     return (
         <div className={'categoryBoxWrapper ' + getColorClassName(index)}>
@@ -71,7 +71,14 @@ const Category = ({
                                         <i className="far fa-square" />
                                     </button>
                                 )}
-                                <h2 className="catTitle">{value}</h2>
+                                <h2
+                                    className={
+                                        'catTitle ' +
+                                        (categoryBoxChecked ? 'strikedOut' : '')
+                                    }
+                                >
+                                    {value}
+                                </h2>
                                 <button
                                     className="deleteCatTitleBtn btns"
                                     onClick={handleDeleteButton}
