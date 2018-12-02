@@ -26,12 +26,11 @@
 }
 
 .categoryBoxWrapper {
-    border: 1px solid black;
     margin: 20px;
     width: 350px;
     min-height: 250px;
     opacity: 0.8;
-    box-shadow: 0px 0px 15px 2px #fafafa;
+    box-shadow: 0px 0px 15px 2px lighten($primary-font-color, 20);
 }
 
 .categoryBox {
@@ -74,9 +73,17 @@
 .newCatBtn.btns {
     width: 350px;
     height: 245px;
-    border: 1px solid black;
     margin: 20px;
     font-size: $medium-font;
+    color: $accent-color;
+    background: rgba(255, 255, 255, 0.6);
+
+    @include containerShadow(lighten($primary-font-color, 20));
+
+    &:hover {
+        @include containerShadow(darken($primary-font-color, 10));
+        background: rgba(255, 255, 255, 0.7);
+    }
 }
 
 .catTitleInput {

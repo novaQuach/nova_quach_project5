@@ -21,3 +21,11 @@
     border: none;
     background: none;
 }
+
+@mixin containerShadow($color) {
+    box-shadow: 0px 0px 15px 2px $color;
+}
+
+@mixin hoverShadow($color) {
+    box-shadow: 0px 0px 15px 3px $color;
+}
