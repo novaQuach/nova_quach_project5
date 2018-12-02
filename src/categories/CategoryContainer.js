@@ -134,7 +134,7 @@ class CategoryContainer extends Component {
                     .filter((entry) => {
                         return !!entry[1]; //explicit boolean conversion, if entry[1] is undefined it is false, wont make it to the map method to be displayed on the page. Above when deleting the category box, we are setting entry[1] to be undefined, therefore gets removed from pg.
                     })
-                    .map((entry) => {
+                    .map((entry, index) => {
                         const [key, category] = entry;
 
                         return (
@@ -144,7 +144,8 @@ class CategoryContainer extends Component {
                                 onTitleSubmit={this.submitTitle}
                                 showTitle={category.showTitle}
                                 catKey={key}
-                                key={key}
+                                index={index}
+                                key={index}
                                 categoryBoxChecked={category.categoryBoxChecked}
                                 onCategoryButtonClick={this.deleteCategoryTitle}
                                 onCategoryBoxButtonClick={

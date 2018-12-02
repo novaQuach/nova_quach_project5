@@ -10,12 +10,28 @@
     justify-content: space-around;
 }
 
+.catBoxColor0 {
+    background-color: #cbc0d3;
+}
+.catBoxColor1 {
+    background-color: #efd3d7;
+}
+
+.catBoxColor2 {
+    background-color: #dee2ff;
+}
+
+.catBoxColor3 {
+    background-color: lighten(#8e9aaf, 15);
+}
+
+
+
 .categoryBoxWrapper {
     border: 1px solid black;
     margin: 20px;
     width: 350px;
     min-height: 250px;
-    background: #feeafa;
     opacity: 0.8;
 }
 

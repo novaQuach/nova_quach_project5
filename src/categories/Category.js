@@ -10,6 +10,7 @@ const Category = ({
     onCategoryBoxButtonClick,
     onCategoryCheckBoxClick,
     categoryBoxChecked,
+    index,
 }) => {
     const handleInputChange = (e) => {
         onTitleChange(catKey, e.target.value);
@@ -32,8 +33,16 @@ const Category = ({
         onCategoryCheckBoxClick(catKey);
     };
 
+    const getColorClassName = (catIndex) => {
+        const numColors = 4;
+        const colorIndex = catIndex % numColors;
+        const className = 'catBoxColor' + colorIndex;
+
+        return className;
+    }
+
     return (
-        <div className="categoryBoxWrapper">
+        <div className={'categoryBoxWrapper ' + getColorClassName(index)}>
             <div className="deleteBoxWrapper">
                 <button className="btns deleteBox" onClick={handleDeleteBox}>
                     <i className="fas fa-trash-alt" />
