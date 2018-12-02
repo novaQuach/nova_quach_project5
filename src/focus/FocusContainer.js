@@ -29,6 +29,7 @@ class FocusContainer extends Component {
             focus: '',
             showFocusTitle: false,
             showFocusQuestion: true,
+            isComplete: false,
         });
     };
 
