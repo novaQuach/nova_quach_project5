@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Focus from './Focus';
+import firebase from '../firebase';
+
+const focusRef = firebase.database().ref('/focusSection');
 
 class FocusContainer extends Component {
     constructor() {
@@ -12,6 +15,12 @@ class FocusContainer extends Component {
         };
     }
 
+    componentDidMount = () => {
+        focusRef.once('value', (snapshot) => {
+            this.setState(snapshot.val());
+        });
+    };
+
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value,
@@ -22,6 +31,13 @@ class FocusContainer extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.setState({ showFocusTitle: true, showFocusQuestion: false });
+
+        focusRef.update({
+            focus: this.state.focus,
+            showFocusTitle: true,
+            isComplete: false,
+            showFocusQuestion: false,
+        });
     };
 
     handleFocusButtonClick = () => {
@@ -31,14 +47,26 @@ class FocusContainer extends Component {
             showFocusQuestion: true,
             isComplete: false,
         });
+
+        focusRef.update({
+            focus: '',
+            showFocusTitle: false,
+            showFocusQuestion: true,
+            isComplete: false,
+        });
     };
 
-    handleFocusBoxChecked = () => {
-        this.setState({
-            isComplete: !this.state.isComplete,
+    handleFocusBoxChecked = (e) => {
+        focusRef.update({ isComplete: true, focus: 'test' });
+        this.setState((currentState) => {
+            const { isComplete } = currentState;
+            const newState = { isComplete: !isComplete };
+
+            console.log(currentState);
+            console.log(newState);
+
+            return newState; //functional setState will return the currentState of the state properties locally. utilizing that to extract the state of isComplete and flipping it to update firebase, and locally.
         });
-        console.log(this.state.isComplete);
-        return this.state.isComplete;
     };
 
     render() {
