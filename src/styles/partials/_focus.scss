@@ -38,3 +38,7 @@
 .strikedOut {
     text-decoration: line-through;
 }
+
+.congratsMsg {
+    @include inputTextStyle($xsmall-font);
+}

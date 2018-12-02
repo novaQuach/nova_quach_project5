@@ -62,7 +62,7 @@ const Focus = ({
                 )}
                 {isComplete ? (
                     <div>
-                        <p>Way to Go!</p>
+                        <p className="congratsMsg tada">Way to Go!</p>
                     </div>
                 ) : null}
             </form>

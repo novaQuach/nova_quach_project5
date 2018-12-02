@@ -2,7 +2,14 @@ html {
     font-size: 62.5%;
 }
 
-:focus, button:focus {
+body {
+    // background: url('assets/journal.jpeg');
+    background: url('assets/blackWhite.jpeg');
+    background-attachment: fixed;
+}
+
+:focus,
+button:focus {
     outline-color: transparent;
     outline-style: none;
 }
