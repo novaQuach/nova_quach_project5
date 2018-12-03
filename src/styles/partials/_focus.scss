@@ -14,8 +14,10 @@
 .focusForm h2 {
     display: inline-block;
     @include headingStyle($large-font);
-    width: 50%;
+    max-width: 55%;
     overflow-wrap: break-word;
+    line-height: 1;
+    margin: 0 20px;
 }
 
 .focusCheckboxButton {
@@ -32,6 +34,7 @@
 .focusTitleWrapper {
     &:hover .deleteFocusTitleBtn {
         opacity: 1;
+        cursor: pointer;
     }
 }
 

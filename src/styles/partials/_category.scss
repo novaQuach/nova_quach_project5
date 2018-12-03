@@ -86,7 +86,6 @@
 
     &:hover {
         @include hoverShadow(darken($primary-font-color, 20));
-        // background: rgba(255, 255, 255, 0.7);
     }
 }
 
