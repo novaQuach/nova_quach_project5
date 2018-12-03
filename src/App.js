@@ -8,6 +8,7 @@ import firebase from './firebase';
 import DateTime from './dateTime/DateTime';
 import FocusContainer from './focus/FocusContainer';
 import CategoryContainer from './categories/CategoryContainer';
+import Nova from './Nova';
 
 class App extends Component {
     constructor() {
@@ -20,6 +21,7 @@ class App extends Component {
                 <DateTime />
                 <FocusContainer />
                 <CategoryContainer />
+                <Nova />
             </main>
         );
     }
