@@ -29,7 +29,7 @@
 .categoryBoxWrapper {
     margin: 20px;
     width: 350px;
-    min-height: 250px;
+    min-height: 300px;
     opacity: 0.8;
     @include containerShadow(lighten($primary-font-color, 20));
 
@@ -82,7 +82,7 @@
 
 .newCatBtn.btns {
     width: 350px;
-    height: 245px;
+    height: 300px;
     margin: 20px;
     font-size: $medium-font;
     color: $accent-color;
