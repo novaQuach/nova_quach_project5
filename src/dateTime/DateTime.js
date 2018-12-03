@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { database } from 'firebase';
 
 class DateTime extends Component {
     constructor() {

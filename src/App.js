@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.scss';
-
-import firebase from './firebase';
 
 // Components
 import DateTime from './dateTime/DateTime';
@@ -11,10 +8,6 @@ import CategoryContainer from './categories/CategoryContainer';
 import Nova from './Nova';
 
 class App extends Component {
-    constructor() {
-        super();
-    }
-
     render() {
         return (
             <main className="App">

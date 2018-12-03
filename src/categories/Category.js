@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Category = ({
     value,
@@ -50,8 +50,6 @@ const Category = ({
             </div>
             <div className="categoryBox">
                 <form onSubmit={handleSubmitTitle} action="">
-                    
-
                     {showTitle ? (
                         <div className="catTitleWrapper">
                             {categoryBoxChecked ? (
