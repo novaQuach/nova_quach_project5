@@ -1,5 +1,5 @@
 import React from 'react';
-
+//{ onChange} is equivalent to const onChange = props.onChange, deconstructing, hence when we want to refer to props.onChange, we only need to type in onChange.
 const Focus = ({
     showFocusQuestion,
     onChange,
@@ -17,14 +17,12 @@ const Focus = ({
             return 'far fa-square';
         }
     };
-    //{ onChange} is equivalent to const onChange = props.onChange, deconstructing, hence when we want to refer to props.onChange, we only need to type in onChange.
+
     return (
         <div>
             {showFocusQuestion ? (
                 <h1 className="focusTitle">What is your main focus today?</h1>
-            ) : (
-                null
-            )}
+            ) : null}
             <form onSubmit={onSubmit} action="" className="focusForm">
                 <label htmlFor="focusCheckbox" />
 

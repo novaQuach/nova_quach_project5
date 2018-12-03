@@ -128,10 +128,11 @@ class CategoryContainer extends Component {
 
     render() {
         return (
+            //explicit boolean conversion, if entry[1] is undefined it is false, wont make it to the map method to be displayed on the page. Above when deleting the category box, we are setting entry[1] to be undefined, therefore gets removed from pg.
             <div className="categoryWrapper">
                 {Object.entries(this.state.categories)
                     .filter((entry) => {
-                        return !!entry[1]; //explicit boolean conversion, if entry[1] is undefined it is false, wont make it to the map method to be displayed on the page. Above when deleting the category box, we are setting entry[1] to be undefined, therefore gets removed from pg.
+                        return !!entry[1];
                     })
                     .map((entry, index) => {
                         const [key, category] = entry;
