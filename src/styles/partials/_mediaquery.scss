@@ -1,4 +1,7 @@
 @media (max-width: 790px) {
+    body {
+        background-size: center;
+    }
     .deleteCatTitleBtn, .deleteBoxWrapper, .deleteFocusTitleBtn {
         opacity: 1;
     }

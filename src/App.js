@@ -14,7 +14,7 @@ class App extends Component {
         audio.play();
 
         const sheet = document.createElement('style');
-        sheet.innerHTML = `.categoryBoxWrapper { background-image: url(${process.env.PUBLIC_URL}/kawhi.jpg); background-size: cover; } .catTitle,.catTitleInput { color: #ffffff; }`;
+        sheet.innerHTML = `.categoryBoxWrapper { background-image: url(${process.env.PUBLIC_URL}/kawhi.jpg); background-size: cover; } .catTitle,.catTitleInput { color: white; }`;
         document.body.appendChild(sheet);
     };
 
@@ -26,6 +26,7 @@ class App extends Component {
                 <CategoryContainer />
                 <Nova />
                 <Konami action={this.easterEgg}></Konami>
+                <Konami action={this.easterEgg} code={[82, 65, 80, 84, 79, 82, 83]}></Konami>
                 
             </main>
         );
