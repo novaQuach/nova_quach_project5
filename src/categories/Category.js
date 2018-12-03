@@ -92,7 +92,7 @@ const Category = ({
                             id="title"
                             type="text"
                             value={value}
-                            maxlength={300}
+                            maxLength={300}
                         />
                     )}
 

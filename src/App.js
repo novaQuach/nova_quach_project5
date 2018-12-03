@@ -10,7 +10,12 @@ import Nova from './Nova';
 
 class App extends Component {
     easterEgg = () => {
-        alert('Hey, you typed the Konami Code!');
+        const audio = new Audio(`${process.env.PUBLIC_URL}/kawhi_laugh.mp3`);
+        audio.play();
+
+        const sheet = document.createElement('style');
+        sheet.innerHTML = `.categoryBoxWrapper { background-image: url(${process.env.PUBLIC_URL}/kawhi.jpg); background-size: cover; } .catTitle,.catTitleInput { color: #ffffff; }`;
+        document.body.appendChild(sheet);
     };
 
     render() {
@@ -20,7 +25,8 @@ class App extends Component {
                 <FocusContainer />
                 <CategoryContainer />
                 <Nova />
-                <Konami action={this.easterEgg}> </Konami>
+                <Konami action={this.easterEgg}></Konami>
+                
             </main>
         );
     }
