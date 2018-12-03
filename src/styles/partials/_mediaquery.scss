@@ -1,9 +1,5 @@
 @media (max-width: 790px) {
-    .deleteCatTitleBtn {
-        opacity: 1;
-    }
-
-    .deleteFocusTitleBtn {
+    .deleteCatTitleBtn, .deleteBoxWrapper, .deleteFocusTitleBtn {
         opacity: 1;
     }
 }

@@ -36,6 +36,14 @@
     &:hover {
         @include hoverShadow(darken($primary-font-color, 20));
     }
+
+    &:hover .deleteCatTitleBtn, &:hover .deleteBoxWrapper {
+        opacity: 1;
+    }
+
+    &:hover .catTitleInput {
+        border-bottom: 1px solid gray;
+    }
 }
 
 .categoryBox {
@@ -44,21 +52,19 @@
 
 .deleteBoxWrapper {
     text-align: right;
+    opacity: 0.5;
 }
 
 .catTitle {
     @include textStyle($medium-font);
     overflow-wrap: break-word;
     display: inline-block;
-    width: 230px;
+    width: 232.5px;
     color: $primary-font-color;
 }
 
 .catTitleWrapper {
     text-align: left;
-    &:hover .deleteCatTitleBtn {
-        opacity: 1;
-    }
 }
 
 .catCheckBox {

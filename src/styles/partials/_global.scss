@@ -26,3 +26,8 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     transition: background-color 50000s ease-in-out 0s;
 }
+
+// Standardize placeholder color
+input::placeholder {
+    color: gray;
+}
