@@ -1,3 +1,4 @@
+import Konami from 'react-konami-code';
 import React, { Component } from 'react';
 import './App.scss';
 
@@ -8,6 +9,10 @@ import CategoryContainer from './categories/CategoryContainer';
 import Nova from './Nova';
 
 class App extends Component {
+    easterEgg = () => {
+        alert('Hey, you typed the Konami Code!');
+    };
+
     render() {
         return (
             <main className="App">
@@ -15,6 +20,7 @@ class App extends Component {
                 <FocusContainer />
                 <CategoryContainer />
                 <Nova />
+                <Konami action={this.easterEgg}> </Konami>
             </main>
         );
     }
