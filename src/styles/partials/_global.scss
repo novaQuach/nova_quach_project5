@@ -3,13 +3,26 @@ html {
 }
 
 body {
-    // background: url('assets/journal.jpeg');
-    background: url('assets/blackWhite.jpeg');
+    background-image: url('assets/blackWhite.jpeg');
     background-attachment: fixed;
+    background-size: cover;
 }
 
 :focus,
 button:focus {
     outline-color: transparent;
     outline-style: none;
+}
+
+// Disable webkit yellow background for autocomplete
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    transition: background-color 50000s ease-in-out 0s;
 }
