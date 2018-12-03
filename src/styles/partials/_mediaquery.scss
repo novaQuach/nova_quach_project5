@@ -1,0 +1,71 @@
+@media (max-width: 790px) {
+    .deleteCatTitleBtn {
+        opacity: 1;
+    }
+
+    .deleteFocusTitleBtn {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 575px) {
+    .time {
+        @include headingStyle($xlarge-media-font);
+    }
+    .date {
+        @include headingStyle($medium-font);
+    }
+}
+
+@media (max-width: 457px) {
+    .time {
+        font-size: $large-media-font;
+    }
+
+    .focusTitleInput {
+        width: 250px;
+        font-size: $medium-font;
+    }
+
+    .categoryWrapper {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .categoryBoxWrapper {
+        min-height: 250px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .catTitleWrapper {
+        width: 100%;
+    }
+
+    .catTitle {
+        width: 180px;
+    }
+
+    .catCheckBox.btns {
+        margin-left: 10px;
+    }
+
+    .deleteCatTitleBtn {
+        width: 20px;
+    }
+
+    .newCatBtn.btns {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .date {
+        font-size: $small-font;
+    }
+
+    .focusForm h2 {
+        font-size: $medium-font;
+    }
+}
