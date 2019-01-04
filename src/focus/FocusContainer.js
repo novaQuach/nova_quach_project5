@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Focus from './Focus';
 import firebase from '../firebase';
 
-const focusRef = firebase.database().ref('/focusSection');
-
 class FocusContainer extends Component {
     constructor() {
         super();
@@ -14,12 +12,6 @@ class FocusContainer extends Component {
             showFocusQuestion: true,
         };
     }
-
-    componentDidMount = () => {
-        focusRef.once('value', (snapshot) => {
-            this.setState(snapshot.val());
-        });
-    };
 
     handleChange = (e) => {
         this.setState({
@@ -32,7 +24,7 @@ class FocusContainer extends Component {
         e.preventDefault();
         this.setState({ showFocusTitle: true, showFocusQuestion: false });
 
-        focusRef.update({
+        this.props.userDbRef.child('focusSection').update({
             focus: this.state.focus,
             showFocusTitle: true,
             isComplete: false,
@@ -48,7 +40,7 @@ class FocusContainer extends Component {
             isComplete: false,
         });
 
-        focusRef.update({
+        this.props.focusRef.child('focusSection').update({
             focus: '',
             showFocusTitle: false,
             showFocusQuestion: true,
@@ -63,24 +55,29 @@ class FocusContainer extends Component {
             const { isComplete } = currentState;
             const newState = { isComplete: !isComplete };
 
-            focusRef.update(newState);
+            this.props.userDbRef.update(newState);
 
             return newState;
         });
     };
 
     render() {
+        const { test } = this.props;
+
         return (
-            <Focus
-                value={this.state.focus}
-                onChange={this.handleChange}
-                onSubmit={this.handleSubmit}
-                showFocusTitle={this.state.showFocusTitle}
-                focusButtonClick={this.handleFocusButtonClick}
-                focusBoxChecked={this.handleFocusBoxChecked}
-                isComplete={this.state.isComplete}
-                showFocusQuestion={this.state.showFocusQuestion}
-            />
+            <div>
+                <Focus
+                    value={this.state.focus}
+                    onChange={this.handleChange}
+                    onSubmit={this.handleSubmit}
+                    showFocusTitle={this.state.showFocusTitle}
+                    focusButtonClick={this.handleFocusButtonClick}
+                    focusBoxChecked={this.handleFocusBoxChecked}
+                    isComplete={this.state.isComplete}
+                    showFocusQuestion={this.state.showFocusQuestion}
+                    // userName={this.state.user.displayName}
+                />
+            </div>
         );
     }
 }

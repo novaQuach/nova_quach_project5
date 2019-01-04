@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import deepmerge from 'deepmerge';
 import Category from './Category';
-import firebase from '../firebase';
-
-const categoriesRef = firebase.database().ref('/categories');
 
 class CategoryContainer extends Component {
     constructor() {
@@ -13,33 +10,30 @@ class CategoryContainer extends Component {
         };
     }
 
-    componentDidMount = () => {
-        const initialCategory = {
-            showTitle: true,
-            title: 'Smile',
-            categoryBoxChecked: false,
-        };
+    // Get the latest snapshot once from firebase
+    fetchData = () => {
         // attach event listener to firebase
-        categoriesRef.once('value', (snapshot) => {
-            console.log(snapshot.val());
-
+        this.props.userDbRef.child('categories').once('value', (snapshot) => {
             const categories = snapshot.val();
 
-            if (categories == null) {
-                categoriesRef.push(initialCategory).then((catRef) => {
-                    this.setState({
-                        categories: {
-                            [catRef.key]: initialCategory,
-                        },
-                    });
-                });
-            } else {
+            if (categories) {
                 this.setState({
                     categories: snapshot.val(),
                 });
             }
         });
     };
+
+    componentDidMount() {
+        this.fetchData();
+    }
+
+    componentDidUpdate(prevProps) {
+        // When props update, check if the userDbRef prop has changed, then fetch new data
+        if (prevProps.userDbRef !== this.props.userDbRef) {
+            this.fetchData();
+        }
+    }
 
     handleTitleChange = (key, title) => {
         this.setState((currentState) => {
@@ -60,13 +54,16 @@ class CategoryContainer extends Component {
             });
         });
 
-        categoriesRef.child(key).update({
-            showTitle: true,
-            title: this.state.categories[key].title,
-        });
+        this.props.userDbRef
+            .child('categories')
+            .child(key)
+            .update({
+                showTitle: true,
+                title: this.state.categories[key].title,
+            });
     };
 
-    // pushing the indiviudal category obejct to the categoriesRef generates a unique key, which we can reference when we want to delete the category box
+    // pushing the indiviudal category obejct to the this.props.userDbRef.child('categories') generates a unique key, which we can reference when we want to delete the category box
     handleNewCategory = () => {
         const emptyCat = {
             showTitle: false,
@@ -74,16 +71,19 @@ class CategoryContainer extends Component {
             categoryBoxChecked: false,
         };
 
-        categoriesRef.push(emptyCat).then((catRef) => {
-            const newKey = catRef.key;
-            this.setState((currentState) => {
-                return deepmerge(currentState, {
-                    categories: {
-                        [newKey]: emptyCat,
-                    },
+        this.props.userDbRef
+            .child('categories')
+            .push(emptyCat)
+            .then((catRef) => {
+                const newKey = catRef.key;
+                this.setState((currentState) => {
+                    return deepmerge(currentState, {
+                        categories: {
+                            [newKey]: emptyCat,
+                        },
+                    });
                 });
             });
-        });
     };
 
     deleteCategoryTitle = (key) => {
@@ -94,7 +94,9 @@ class CategoryContainer extends Component {
                 },
             });
         });
-        categoriesRef.update({ showTitle: false, title: '' });
+        this.props.userDbRef
+            .child('categories')
+            .update({ showTitle: false, title: '' });
     };
 
     deleteCategoryBox = (key) => {
@@ -105,7 +107,10 @@ class CategoryContainer extends Component {
                 },
             });
         });
-        categoriesRef.child(key).remove();
+        this.props.userDbRef
+            .child('categories')
+            .child(key)
+            .remove();
     };
 
     checkCategoryBox = (key) => {
@@ -121,9 +126,13 @@ class CategoryContainer extends Component {
         });
         console.log(this.state.categories[key].categoryBoxChecked);
 
-        categoriesRef.child(key).update({
-            categoryBoxChecked: this.state.categories[key].categoryBoxChecked,
-        });
+        this.props.userDbRef
+            .child('categories')
+            .child(key)
+            .update({
+                categoryBoxChecked: this.state.categories[key]
+                    .categoryBoxChecked,
+            });
     };
 
     render() {
@@ -159,6 +168,7 @@ class CategoryContainer extends Component {
                     className="btns newCatBtn"
                     onClick={this.handleNewCategory}
                 >
+                    <h5> Add a new task!</h5>
                     <i className="fas fa-plus" />
                 </button>
             </div>
