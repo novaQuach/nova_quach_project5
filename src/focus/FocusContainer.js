@@ -62,7 +62,7 @@ class FocusContainer extends Component {
     };
 
     render() {
-        const { test } = this.props;
+        const { userName } = this.props;
 
         return (
             <div>
@@ -75,7 +75,7 @@ class FocusContainer extends Component {
                     focusBoxChecked={this.handleFocusBoxChecked}
                     isComplete={this.state.isComplete}
                     showFocusQuestion={this.state.showFocusQuestion}
-                    // userName={this.state.user.displayName}
+                    userName={userName}
                 />
             </div>
         );

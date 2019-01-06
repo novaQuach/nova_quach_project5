@@ -68,23 +68,37 @@ class App extends Component {
     };
 
     render() {
+        // deconstructing state object
+        const { user, userDbRef } = this.state;
+
+        // guard against user being null
+        const displayName = user ? user.displayName : null;
+
         return (
             <main className="App">
                 {this.state.user ? (
-                    <div>
-                        <button onClick={this.logOut}>Logout</button>
-                        <p>Hello {this.state.user.displayName}</p>
+                    <div className="logout-btn-wrapper">
+                        <button className="logout-btn" onClick={this.logOut}>
+                            Logout
+                        </button>
                     </div>
                 ) : (
-                    <div>
-                        <button onClick={this.login}>Login</button>
-                        <p> please login or view as guest</p>
+                    <div className="login-container">
+                        <p className="login-msg">
+                            Please login to customize your own tasks!
+                        </p>
+                        <button className="login-btn" onClick={this.login}>
+                            Login
+                        </button>
                     </div>
                 )}
                 <DateTime />
                 {this.state.userDbRef ? (
                     <>
-                        <FocusContainer userDbRef={this.state.userDbRef} />
+                        <FocusContainer
+                            userDbRef={userDbRef}
+                            userName={displayName}
+                        />
                         <CategoryContainer userDbRef={this.state.userDbRef} />
                     </>
                 ) : null}
@@ -101,17 +115,3 @@ class App extends Component {
 }
 
 export default App;
-
-// {
-//     this.state.user ? (
-//         <div>
-//             <button onClick={this.logOut}>Logout</button>
-//             <p>Hello {this.state.user.displayName}</p>
-//         </div>
-//     ) : (
-//         <div>
-//             <button onClick={this.login}>Login</button>
-//             <p> please login or view as guest</p>
-//         </div>
-//     )
-// }

@@ -1,4 +1,13 @@
 .footerStyle {
-    font-size: $xsmall-font;
+    // font-size: $xsmall-font;
     padding-bottom: 8px;
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: $primary-font-color;
+
+    &:hover {
+        font-weight: bold;
+        text-decoration: none;
+        color: $primary-font-color;
+    }
 }

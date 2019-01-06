@@ -9,6 +9,7 @@ const Focus = ({
     focusButtonClick,
     focusBoxChecked,
     isComplete,
+    userName,
 }) => {
     const checkboxButtonClass = (isChecked) => {
         if (isChecked) {
@@ -18,10 +19,14 @@ const Focus = ({
         }
     };
 
+    const userNameDisplay = userName != null ? `, ${userName}` : '';
+
     return (
         <div>
             {showFocusQuestion ? (
-                <h1 className="focusTitle">What is your main focus today?</h1>
+                <h1 className="focusTitle">
+                    What is your main focus today{userNameDisplay}?
+                </h1>
             ) : null}
             <form onSubmit={onSubmit} action="" className="focusForm">
                 <label htmlFor="focusCheckbox" />

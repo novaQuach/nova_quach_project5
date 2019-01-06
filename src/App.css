@@ -1,0 +1,598 @@
+@import url(/Users/nover/Sites/HackerYou/Projects/quick-scribble/src/styles/bootstrap_reset.css);
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden] {
+  display: none;
+}
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+q {
+  quotes: \201c \201d \2018 \2019;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+input[type='search'] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body,
+figure {
+  margin: 0;
+}
+
+legend,
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '';
+  clear: both;
+  height: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-image: url("assets/blackWhite.jpeg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+:focus,
+button:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-transition: background-color 50000s ease-in-out 0s;
+  transition: background-color 50000s ease-in-out 0s;
+}
+
+input::-webkit-input-placeholder {
+  color: gray;
+}
+
+input:-ms-input-placeholder {
+  color: gray;
+}
+
+input::-ms-input-placeholder {
+  color: gray;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+.time,
+.date {
+  display: block;
+}
+
+.time {
+  font-family: "Quicksand", sans-serif;
+  font-size: 9rem;
+}
+
+.date {
+  font-family: "Quicksand", sans-serif;
+  font-size: 3.2rem;
+}
+
+.focusTitle {
+  font-family: "Quicksand", sans-serif;
+  font-size: 3.2rem;
+  margin-bottom: 30px;
+}
+
+.focusTitleInput {
+  font-size: 4.5em;
+  border: none;
+  background: none;
+  width: 400px;
+  border-bottom: 2px solid black;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+}
+
+.focusForm h2 {
+  display: inline-block;
+  font-family: "Quicksand", sans-serif;
+  font-size: 4.5em;
+  max-width: 55%;
+  overflow-wrap: break-word;
+  line-height: 1;
+  margin: 0 20px;
+}
+
+.focusCheckboxButton {
+  width: 50px;
+  vertical-align: top;
+}
+
+.deleteFocusTitleBtn {
+  opacity: 0;
+  width: 50px;
+  vertical-align: top;
+}
+
+.focusTitleWrapper:hover .deleteFocusTitleBtn {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.strikedOut {
+  text-decoration: line-through;
+}
+
+.congratsMsg {
+  font-size: 1.8rem;
+  border: none;
+  background: none;
+}
+
+.btns {
+  margin: 10px;
+  border: none;
+  background: none;
+  font-size: 2.4rem;
+}
+
+.categoryWrapper {
+  width: 85%;
+  max-width: 1550px;
+  margin: 50px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.catBoxColor0 {
+  background-color: #cbc0d3;
+}
+
+.catBoxColor1 {
+  background-color: #efd3d7;
+}
+
+.catBoxColor2 {
+  background-color: #dee2ff;
+}
+
+.catBoxColor3 {
+  background-color: #bbc2cf;
+}
+
+.categoryBoxWrapper {
+  margin: 20px;
+  width: 350px;
+  min-height: 300px;
+  opacity: 0.8;
+  -webkit-box-shadow: 0px 0px 15px 2px #333333;
+          box-shadow: 0px 0px 15px 2px #333333;
+}
+
+.categoryBoxWrapper:hover {
+  -webkit-box-shadow: 0px 0px 15px 3px black;
+          box-shadow: 0px 0px 15px 3px black;
+}
+
+.categoryBoxWrapper:hover .deleteCatTitleBtn,
+.categoryBoxWrapper:hover .deleteBoxWrapper {
+  opacity: 1;
+}
+
+.categoryBoxWrapper:hover .catTitleInput {
+  border-bottom: 1px solid gray;
+}
+
+.categoryBox {
+  width: 100%;
+}
+
+.deleteBoxWrapper {
+  text-align: right;
+  opacity: 0.5;
+}
+
+.catTitle {
+  font-family: "Amatic SC", cursive;
+  font-size: 3.2rem;
+  overflow-wrap: break-word;
+  display: inline-block;
+  width: 232.5px;
+  color: black;
+  text-align: center;
+}
+
+.catTitleWrapper {
+  text-align: left;
+  margin: 50px 0 0 0;
+}
+
+.catCheckBox {
+  font-size: 2.4rem;
+  border: none;
+  background: none;
+  vertical-align: top;
+  margin-left: 20px;
+}
+
+.deleteCatTitleBtn {
+  width: 30px;
+  opacity: 0;
+  vertical-align: top;
+  padding: 0;
+}
+
+.newCatBtn.btns {
+  width: 350px;
+  height: 300px;
+  margin: 20px;
+  font-size: 3.2rem;
+  color: #189a18;
+  background: white;
+  opacity: 0.7;
+  -webkit-box-shadow: 0px 0px 15px 2px #333333;
+          box-shadow: 0px 0px 15px 2px #333333;
+}
+
+.newCatBtn.btns:hover {
+  -webkit-box-shadow: 0px 0px 15px 3px black;
+          box-shadow: 0px 0px 15px 3px black;
+}
+
+.catTitleInput {
+  font-size: 3.2rem;
+  border: none;
+  background: none;
+  width: 80%;
+  margin: 50px 0 0 20px;
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  color: black;
+}
+
+.strikedOut {
+  text-decoration: line-through;
+}
+
+.footerStyle {
+  padding-bottom: 8px;
+  text-decoration: none;
+  font-size: 1.8rem;
+  color: black;
+}
+
+.footerStyle:hover {
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+@media (max-width: 790px) {
+  body {
+    background-size: center;
+  }
+  .deleteCatTitleBtn,
+  .deleteBoxWrapper,
+  .deleteFocusTitleBtn {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 575px) {
+  .time {
+    font-family: "Quicksand", sans-serif;
+    font-size: 6rem;
+  }
+  .date {
+    font-family: "Quicksand", sans-serif;
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .catTitle {
+    width: 220px;
+  }
+}
+
+@media (max-width: 457px) {
+  .time {
+    font-size: 5rem;
+  }
+  .focusTitleInput {
+    width: 250px;
+    font-size: 3.2rem;
+  }
+  .categoryWrapper {
+    width: 90%;
+    margin: 10px auto;
+  }
+  .categoryBoxWrapper {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .catTitleWrapper {
+    width: 100%;
+  }
+  .catTitle {
+    width: 242px;
+  }
+  .catCheckBox.btns {
+    margin-left: 10px;
+  }
+  .deleteCatTitleBtn {
+    width: 20px;
+  }
+  .newCatBtn.btns {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .date {
+    font-size: 2.4rem;
+  }
+  .focusForm h2 {
+    font-size: 3.2rem;
+  }
+}
+
+.App {
+  text-align: center;
+  padding-top: 5rem;
+}
+
+.App-logo {
+  -webkit-animation: App-logo-spin infinite 20s linear;
+          animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@-webkit-keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.login-container,
+.logout-btn-wrapper {
+  text-align: right;
+  margin: 0 20px 50px 0;
+}
+
+.login-btn,
+.logout-btn {
+  padding: 5px 15px;
+  border: none;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.4rem;
+}
+
+.login-msg {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
+}
+/*# sourceMappingURL=App.css.map */

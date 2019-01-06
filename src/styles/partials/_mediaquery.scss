@@ -2,7 +2,9 @@
     body {
         background-size: center;
     }
-    .deleteCatTitleBtn, .deleteBoxWrapper, .deleteFocusTitleBtn {
+    .deleteCatTitleBtn,
+    .deleteBoxWrapper,
+    .deleteFocusTitleBtn {
         opacity: 1;
     }
 }
@@ -13,6 +15,12 @@
     }
     .date {
         @include headingStyle($medium-font);
+    }
+}
+
+@media (max-width: 470px) {
+    .catTitle {
+        width: 220px;
     }
 }
 
@@ -32,7 +40,7 @@
     }
 
     .categoryBoxWrapper {
-        min-height: 250px;
+        // min-height: 250px;
         margin-left: 0;
         margin-right: 0;
     }
@@ -42,7 +50,7 @@
     }
 
     .catTitle {
-        width: 180px;
+        width: 242px;
     }
 
     .catCheckBox.btns {

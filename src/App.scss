@@ -11,7 +11,7 @@
 
 .App {
     text-align: center;
-    padding-top: 7.5rem;
+    padding-top: 5rem;
 }
 
 .App-logo {
@@ -41,4 +41,21 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+.login-container,
+.logout-btn-wrapper {
+    text-align: right;
+    margin: 0 20px 50px 0;
+}
+
+.login-btn,
+.logout-btn {
+    padding: 5px 15px;
+    border: none;
+    @include headingStyle(1.4rem);
+}
+
+.login-msg {
+    @include headingStyle(1.6rem);
 }

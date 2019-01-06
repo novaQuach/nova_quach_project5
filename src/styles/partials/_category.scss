@@ -37,7 +37,8 @@
         @include hoverShadow(darken($primary-font-color, 20));
     }
 
-    &:hover .deleteCatTitleBtn, &:hover .deleteBoxWrapper {
+    &:hover .deleteCatTitleBtn,
+    &:hover .deleteBoxWrapper {
         opacity: 1;
     }
 
@@ -61,10 +62,12 @@
     display: inline-block;
     width: 232.5px;
     color: $primary-font-color;
+    text-align: center;
 }
 
 .catTitleWrapper {
     text-align: left;
+    margin: 50px 0 0 0;
 }
 
 .catCheckBox {
@@ -99,7 +102,8 @@
 .catTitleInput {
     @include inputTextStyle($medium-font);
     width: 80%;
-    margin: 10px;
+    // margin: 10px;
+    margin: 50px 0 0 20px;
     font-family: $primary-font;
     font-weight: 700;
     color: $primary-font-color;

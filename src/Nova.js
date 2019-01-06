@@ -1,7 +1,17 @@
 import React from 'react';
 
 const Nova = () => {
-    return <footer className="footerStyle">Nova Quach 2018 &copy;</footer>;
+    return (
+        <footer>
+            <a
+                className="footerStyle"
+                target="_blank"
+                href="https://novaquach.com/"
+            >
+                Nova Quach 2018 &copy;{' '}
+            </a>
+        </footer>
+    );
 };
 
 export default Nova;
