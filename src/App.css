@@ -421,6 +421,12 @@ input::placeholder {
           box-shadow: 0px 0px 15px 3px black;
 }
 
+.new-task-msg {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.8rem;
+  margin-top: 10px;
+}
+
 .catTitleInput {
   font-size: 3.2rem;
   border: none;
@@ -589,6 +595,8 @@ input::placeholder {
   border: none;
   font-family: "Quicksand", sans-serif;
   font-size: 1.4rem;
+  -webkit-box-shadow: 0px 0px 15px 2px #333333;
+          box-shadow: 0px 0px 15px 2px #333333;
 }
 
 .login-msg {

@@ -87,6 +87,7 @@
     width: 350px;
     height: 300px;
     margin: 20px;
+
     font-size: $medium-font;
     color: $accent-color;
     background: rgb(255, 255, 255);
@@ -97,6 +98,11 @@
     &:hover {
         @include hoverShadow(darken($primary-font-color, 20));
     }
+}
+
+.new-task-msg {
+    @include headingStyle($xsmall-font);
+    margin-top: 10px;
 }
 
 .catTitleInput {

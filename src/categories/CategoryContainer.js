@@ -168,8 +168,8 @@ class CategoryContainer extends Component {
                     className="btns newCatBtn"
                     onClick={this.handleNewCategory}
                 >
-                    <h5> Add a new task!</h5>
                     <i className="fas fa-plus" />
+                    <p className="new-task-msg"> new task</p>
                 </button>
             </div>
         );
