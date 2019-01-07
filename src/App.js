@@ -1,7 +1,7 @@
 import Konami from 'react-konami-code';
 import React, { Component } from 'react';
 import './App.scss';
-import firebase from 'firebase';
+import firebase from './firebase';
 
 // Components
 import DateTime from './dateTime/DateTime';
@@ -77,19 +77,18 @@ class App extends Component {
         return (
             <main className="App">
                 {this.state.user ? (
-                    <div className="logout-btn-wrapper">
+                    <div className="logout-container">
                         <button className="logout-btn" onClick={this.logOut}>
                             Logout
                         </button>
+                        <p className="logout-msg">Welcome, {displayName}</p>
                     </div>
                 ) : (
                     <div className="login-container">
-                        <p className="login-msg">
-                            Please login to customize your own tasks!
-                        </p>
                         <button className="login-btn" onClick={this.login}>
                             Login
                         </button>
+                        <p className="login-msg">login to save your tasks!</p>
                     </div>
                 )}
                 <DateTime />

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Focus from './Focus';
-import firebase from '../firebase';
 
 class FocusContainer extends Component {
     constructor() {
@@ -40,7 +39,7 @@ class FocusContainer extends Component {
             isComplete: false,
         });
 
-        this.props.focusRef.child('focusSection').update({
+        this.props.userDbRef.child('focusSection').update({
             focus: '',
             showFocusTitle: false,
             showFocusQuestion: true,

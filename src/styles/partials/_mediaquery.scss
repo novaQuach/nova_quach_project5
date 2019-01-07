@@ -1,5 +1,6 @@
 @media (max-width: 790px) {
     body {
+        background-image: url('assets/background-2.jpg');
         background-size: center;
     }
     .deleteCatTitleBtn,
@@ -29,9 +30,17 @@
         font-size: $large-media-font;
     }
 
+    .focusTitle {
+        margin: 20px;
+    }
+
     .focusTitleInput {
         width: 250px;
         font-size: $medium-font;
+    }
+
+    .focusForm h2 {
+        margin-bottom: 23px;
     }
 
     .categoryWrapper {
