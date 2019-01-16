@@ -88,7 +88,7 @@ class App extends Component {
                         <button className="login-btn" onClick={this.login}>
                             Login
                         </button>
-                        <p className="login-msg">login to save your tasks!</p>
+                        <p className="login-msg">Login to save your tasks!</p>
                     </div>
                 )}
                 <DateTime />

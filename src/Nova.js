@@ -8,7 +8,7 @@ const Nova = () => {
                 target="_blank"
                 href="https://novaquach.com/"
             >
-                Nova Quach 2018 &copy;{' '}
+                Nova Quach 2019 &copy;{' '}
             </a>
         </footer>
     );

@@ -130,7 +130,7 @@ class CategoryContainer extends Component {
             .child('categories')
             .child(key)
             .update({
-                categoryBoxChecked: this.state.categories[key]
+                categoryBoxChecked: !this.state.categories[key]
                     .categoryBoxChecked,
             });
     };
