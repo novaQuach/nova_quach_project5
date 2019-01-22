@@ -51,9 +51,11 @@
     @include headingStyle(1.2rem);
     @include containerShadow(lighten($primary-font-color, 20));
     margin-bottom: 8px;
+    font-weight: bolder;
 }
 
 .logout-msg,
 .login-msg {
     @include headingStyle(1.3rem);
+    font-weight: bolder;
 }

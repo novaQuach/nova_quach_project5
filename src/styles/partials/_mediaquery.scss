@@ -19,9 +19,9 @@
     }
 }
 
-@media (max-width: 470px) {
+@media (max-width: 479px) {
     .catTitle {
-        width: 220px;
+        width: 65%;
     }
 }
 
@@ -58,10 +58,6 @@
         width: 100%;
     }
 
-    .catTitle {
-        width: 242px;
-    }
-
     .catCheckBox.btns {
         margin-left: 10px;
     }
@@ -76,7 +72,7 @@
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 335px) {
     .date {
         font-size: $small-font;
     }
