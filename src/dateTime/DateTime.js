@@ -18,25 +18,33 @@ class DateTime extends Component {
     }
 
     getTimeWithoutSecs = () => {
+        let HourMinuteString;
+        let AmPmString;
+        let timeString;
         const date = this.state.date;
         // this is a built in method returns a string that contains the hour: minute : second AM/PM
         const rawTimeString = date.toLocaleTimeString();
+        // this is 24 hour clock case
+        if (rawTimeString.length < 10) {
+            // extracting only the hour and minute from the rawstring.
+            timeString = rawTimeString.slice(0, 5);
+        } else if (rawTimeString.length == 10) {
+            HourMinuteString = rawTimeString.slice(0, 4);
+            // extracting the AM/PM part of the raw string
+            AmPmString = rawTimeString.slice(8, 11);
+            // concatenating the hourminute string with AM/PM string to give what is displayed
 
-        // extracting only the hour and minute from the rawstring.
-        const HourMinuteString = rawTimeString.slice(0, 5);
-
-        // extracting the AM/PM part of the raw string
-        const AmPmString = rawTimeString.slice(8, 11);
-
-        // concatenating the hourminute string with AM/PM string to give what is displayed
-        const timeString = `${HourMinuteString} ${AmPmString}`;
+            timeString = `${HourMinuteString} ${AmPmString}`;
+        } else {
+            HourMinuteString = rawTimeString.slice(0, 5);
+            AmPmString = rawTimeString.slice(8, 11);
+            timeString = `${HourMinuteString} ${AmPmString}`;
+        }
 
         return timeString;
     };
 
     render() {
-        // const date = this.state.date;
-
         console.log(this.getTimeWithoutSecs());
 
         return (
