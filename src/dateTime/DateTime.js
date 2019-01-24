@@ -45,8 +45,6 @@ class DateTime extends Component {
     };
 
     render() {
-        console.log(this.getTimeWithoutSecs());
-
         return (
             <div className="dateTime">
                 <time className="date">{this.state.date.toDateString()}</time>

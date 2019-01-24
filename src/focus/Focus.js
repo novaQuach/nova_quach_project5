@@ -74,5 +74,3 @@ const Focus = ({
 };
 
 export default Focus;
-
-//

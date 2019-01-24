@@ -41,6 +41,7 @@
 
     .focusForm h2 {
         margin-bottom: 23px;
+        max-width: 50%;
     }
 
     .categoryWrapper {
@@ -49,7 +50,6 @@
     }
 
     .categoryBoxWrapper {
-        // min-height: 250px;
         margin-left: 0;
         margin-right: 0;
     }
@@ -79,5 +79,7 @@
 
     .focusForm h2 {
         font-size: $medium-font;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
